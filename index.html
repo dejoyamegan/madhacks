@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  		<script src="papaparse.min.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -15,7 +17,7 @@
 				<div class="inner">
 					<span class="icon solid major fa-film"></span>
 					<h1><strong>What2Watch</strong></h1>
-					<p>Provides recommended movies based on your movie choices.</p>
+					<p>Provides recommended movies based on movie genre.</p>
 					<ul class="actions special">
 						<li><a href="#one" class="button scrolly">Find Movies!</a></li>
 					</ul>
@@ -28,7 +30,7 @@
 					<div class="row gtr-150">
 						<div class="col-6 col-12-medium">
 							<header class="major">
-								<h2>Enter information about movies you have seen, and we'll find some great movie recommendations for you!</h2>
+								<h2>Enter a movie genre and we'll find some great movie recommendations for you!</h2>
 							</header>
 							<p>Add information here (optional).</p>
 						</div>
@@ -49,60 +51,29 @@
 								<p></p>
 								<div class="col-12">
 									<select name="demo-category" id="demo-category">
-										<option value="">- Genre -</option>
+										<option value="0">- Genre -</option>
 										<option value="1">Action</option>
-										<option value="1">Adventure</option>
-										<option value="1">Animation</option>
-										<option value="1">Comedy</option>
-										<option value="1">Crime</option>
-										<option value="1">Documentary</option>
-										<option value="1">Drama</option>
-										<option value="1">Family</option>
-										<option value="1">Fantasy</option>
-										<option value="1">Foreign</option>
-										<option value="1">History</option>
-										<option value="1">Horror</option>
-										<option value="1">Movie</option>
-										<option value="1">Music</option>
-										<option value="1">Mystery</option>
-										<option value="1">Romance</option>
-										<option value="1">Science</option>
-										<option value="1">Thriller</option>
-										<option value="1">War</option>
-										<option value="1">Western</option>
-										<option value="1">N/A</option>
+										<option value="2">Adventure</option>
+										<option value="3">Animation</option>
+										<option value="4">Comedy</option>
+										<option value="5">Crime</option>
+										<option value="6">Documentary</option>
+										<option value="7">Drama</option>
+										<option value="8">Family</option>
+										<option value="9">Fantasy</option>
+										<option value="10">Foreign</option>
+										<option value="11">History</option>
+										<option value="12">Horror</option>
+										<option value="13">Music</option>
+										<option value="14">Mystery</option>
+										<option value="15">Romance</option>
+										<option value="16">Science Fiction</option>
+										<option value="17">Thriller</option>
+										<option value="18">War</option>
+										<option value="19">Western</option>
 									</select>
 								</div>
 							</header>
-							<header class="major">
-								<h2>Enter Movie Actor/Actress:</h2>
-								<p></p>
-								<form action="/action_page.php">
-  								<input list="browsers" name="browser">
-  								<datalist id="browsers">
-  								  <option value="Internet Explorer">
-  								  <option value="Firefox">
-  								  <option value="Chrome">
-  								  <option value="Opera">
-  								  <option value="Safari">
- 								 </datalist>
-								</form>
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-name" id="demo-name" value="" placeholder="Actor/Actress Name" />
-								</div>
-							</header>
-							<header class="major">
-								<h2>Enter Movies You've Seen:</h2>
-								<p></p>
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-name" id="demo-name" value="" placeholder="Movie Names" />
-								</div>
-							</header>
-								<h2>Extra Field:</h2>
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-name" id="demo-name" value="" placeholder="Extra Field" />
-								</div>
-								<p></p>
 						</div>
 					</div>
 					<a href="results.html" class="button">Search</a>
