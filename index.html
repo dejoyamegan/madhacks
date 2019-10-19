@@ -7,10 +7,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  		<script src="papaparse.min.js"></script>
+		<script src="jquery-csv.js"></script>
 	</head>
 	<body class="is-preload">
+
+		var csv = require('./jquery.csv.js');
 
 		<!-- Header -->
 			<section id="header">
@@ -76,6 +77,33 @@
 							</header>
 						</div>
 					</div>
+					<p id="demo"></p>
+
+					<script>
+					function getResults() {
+ 						//Returns the category selection
+						//var e = document.getElementById("demo-category");
+						//Returns the movie genre that the user selected
+						//var selectedGenre = e.options[e.selectedIndex].text;
+
+
+						//Read local file
+						$.ajax({
+							url: "/movies.csv",
+							async: false,
+							success: function (csvd) {
+								data = $.csv.toArrays(csvd);
+								
+							},
+							dataType: "text",
+							complete: function () {
+								// call a function on complete 
+							}
+						});
+						return("hi");
+					}
+					document.getElementById("demo").innerHTML = getResults();
+					</script>
 					<a href="results.html" class="button">Search</a>
 				</div>
 			</section>
