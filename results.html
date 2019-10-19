@@ -21,6 +21,17 @@
 				</div>
 			</section>
 
+		<!-- Papa.parse -->
+			Papa.parse(movies.files[0], {
+				download: true,
+				step: function(row) {
+					console.log("Row:", row.data);
+				},
+				complete: function() {
+					console.log("All done!");
+				}
+			});
+
 		<!-- Three -->
 			<section id="three" class="main style1 special">
 				<div class="container">
