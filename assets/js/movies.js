@@ -406,7 +406,7 @@ var movies = [
   },
   {
     "Title": "ExistenZ",
-    "Genre": "Science Fiction",
+    "Genre": "Sci-Fi",
     "Ranking": 1,
     "Description": "A game designer on the run from assassins must play her latest virtual reality creation with a marketing trainee to determine if the game has been damaged.",
     "Rating": "R",
@@ -415,7 +415,7 @@ var movies = [
   },
   {
     "Title": "The Congress",
-    "Genre": "Science Fiction",
+    "Genre": "Sci-Fi",
     "Ranking": 2,
     "Description": "An aging, out-of-work actress accepts one last job, though the consequences of her decision affect her in ways she didn't consider.",
     "Rating": "NR",
@@ -424,7 +424,7 @@ var movies = [
   },
   {
     "Title": "Dark City",
-    "Genre": "Science Fiction",
+    "Genre": "Sci-Fi",
     "Ranking": 3,
     "Description": "A man struggles with memories of his past, which includes a wife he cannot remember, and a nightmarish world without a sun.",
     "Rating": "R",
