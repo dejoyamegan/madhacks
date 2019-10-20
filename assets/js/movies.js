@@ -378,7 +378,7 @@ var movies = [
     "Image": "mystery3.jpg"
   },
   {
-    "Title": "Passengers (I)",
+    "Title": "Passengers",
     "Genre": "Romance",
     "Ranking": 1,
     "Description": "A spacecraft traveling to a distant colony planet and transporting thousands of people has a malfunction in its sleep chambers. As a result, two passengers are awakened 90 years early.",
