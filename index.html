@@ -1,5 +1,14 @@
 <!DOCTYPE HTML>
 
+<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/movies.js"></script>
+	<script src="assets/js/main.js"></script>
+
 <html>
 	<head>
 		<title>What2Watch</title>
@@ -7,11 +16,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script src="jquery-csv.js"></script>
 	</head>
 	<body class="is-preload">
-
-		var csv = require('./jquery.csv.js');
 
 		<!-- Header -->
 			<section id="header">
@@ -51,7 +57,7 @@
 								<h2>Enter Movie Genre:</h2>
 								<p></p>
 								<div class="col-12">
-									<select name="demo-category" id="demo-category">
+									<select id="demo-category">
 										<option value="0">- Genre -</option>
 										<option value="1">Action</option>
 										<option value="2">Adventure</option>
@@ -77,38 +83,10 @@
 							</header>
 						</div>
 					</div>
-					<p id="demo"></p>
+					<button href="results.html" class="button" onclick="addToUrl()">Search </button>
 
-					<script>
-					function getResults() {
- 						//Returns the category selection
-						//var e = document.getElementById("demo-category");
-						//Returns the movie genre that the user selected
-						//var selectedGenre = e.options[e.selectedIndex].text;
-
-
-						//Read local file
-						$.ajax({
-							url: "/movies.csv",
-							async: false,
-							success: function (csvd) {
-								data = $.csv.toArrays(csvd);
-								
-							},
-							dataType: "text",
-							complete: function () {
-								// call a function on complete 
-							}
-						});
-						return("hi");
-					}
-					document.getElementById("demo").innerHTML = getResults();
-					</script>
-					<a href="results.html" class="button">Search</a>
 				</div>
 			</section>
-
-
 
 		<!-- Five -->
 		<!--
@@ -146,13 +124,13 @@
 						<h5>Preformatted</h5>
 						<pre><code>i = 0;
 
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
+		while (!deck.isInOrder()) {
+		print 'Iteration ' + i;
+		deck.shuffle();
+		i++;
+		}
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+		print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					</section>
 
 					<section>
@@ -435,13 +413,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				</ul>
 			</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
