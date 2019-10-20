@@ -3,8 +3,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
-
+var rankingForMore;
 
 (function($) {
 
@@ -30,25 +29,24 @@
 
 	// Scrolly.
 		$('.scrolly').scrolly();
-		genreForMore = (name) => {
-			console.log(name);
-			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-			console.log(window.location.href);
-			if (results && results.length > 0) {
-				return results[1];
-			}
-			return 0;
-		};
-		const genre = genreForMore('genre');
-		document.getElementById("g").innerHTML =  genre;
 
-
+	const getGenre = (name) => {
+		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	if (results && results.length > 0) {
+		return results[1];
+	}
+	return 0;
+	}
+	const genre = getGenre('genre');
+	var filteredMovies = movies.filter(function (movie) { 	return movie.Genre === genre; });
+	console.log(movies);
+	var selectedRanking = getGenre('ranking');
+	document.getElementById("yearId").innerHTML =  "Year Released: " + filteredMovies[parseInt(selectedRanking, 10) - 1].Year;
+	document.getElementById("ratingId").innerHTML = "Movie Rated: " + filteredMovies[parseInt(selectedRanking, 10) - 1].Rating;
 })(jQuery);
 
 $.urlParam = function(name){
-	console.log(name);
 	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	console.log(window.location.href);
 	if (results && results.length > 0) {
 		return results[1];
 	}
@@ -63,7 +61,6 @@ function addToUrl() {
 	//Returns the movie genre that the user selected
 	selectedGenre = e.options[e.selectedIndex].text;
 	var url = "/results.html?genre=" + selectedGenre;
-	console.log(url);
 	window.location = url;
 }
 
@@ -83,20 +80,24 @@ $( document ).ready(function() {
 	document.getElementById("description2").innerHTML = filteredMovies[1].Description;
 	document.getElementById("description3").innerHTML = filteredMovies[2].Description;
 
-	
+	console.log('hey');
 });
 
 var genreForMore;
-var rankingForMore;
+
 
 function addToMore(j) {
 	rankingForMore = j;
 	genreForMore = $.urlParam('genre');
-	const url = `/more.html?ranking=${j}&genre=${genreForMore}`;
+	const url = `/more.html?ranking=${j}`;
 	window.location = url;
 }
 
-function getGenre() {
-	genreForMore = $.urlParam('genre');
-	document.getElementById("g").innerHTML =  genreForMore;
+function yearAndRating() {
+	var filteredMovies = movies.filter(function (movie) { 	return movie.Genre === genreForMore; });
+	var selectedRanking = $.urlParam('ranking');
+	var yearId = "year" + rankingForMore;
+	var ratingId = "rating" + rankingForMore;
+	document.getElementById(yearId).innerHTML =  "Year Released: " + filteredMovies[rankingForMore - 1].Year;
+	document.getElementById(ratingId).innerHTML = "Movie Rated: " + filteredMovies[rankingForMore - 1].Rating;
 }
