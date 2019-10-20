@@ -36,17 +36,13 @@ $.urlParam = function(name){
 	return results[1] || 0;
 }
 
-function getMovieTitle(i) {
-	var filteredMovies = getResults();
-	return filteredMovies[i].Title;
-}
+var selectedGenre;
 
 function addToUrl() {
 	//Returns the category selection
 	var e = document.getElementById("demo-category");
 	//Returns the movie genre that the user selected
-	var selectedGenre = e.options[e.selectedIndex].text;
-
+	selectedGenre = e.options[e.selectedIndex].text;
 	var url = "/results.html?genre=" + selectedGenre;
 	console.log(url);
 	window.location = url;
@@ -54,7 +50,7 @@ function addToUrl() {
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
-	var selectedGenre = $.urlParam('genre');
+	selectedGenre = $.urlParam('genre');
 	var filteredMovies = movies.filter(function (movie) { 	return movie.Genre === selectedGenre; });
 	document.getElementById("movie1").innerHTML = "MOVIE #1: " + filteredMovies[0].Title;
 	document.getElementById("movie2").innerHTML = "MOVIE #2: " + filteredMovies[1].Title;
@@ -69,3 +65,19 @@ $( document ).ready(function() {
 	document.getElementById("description3").innerHTML = filteredMovies[2].Description;
 });
 
+var genreForMore;
+var rankingForMore;
+
+function addToMore(j) {
+	rankingForMore = j;
+	genreForMore = $.urlParam('genre');
+}
+
+function yearAndRating() {
+	var filteredMovies = movies.filter(function (movie) { 	return movie.Genre === genreForMore; });
+	var selectedRanking = $.urlParam('ranking');
+	var yearId = "year" + rankingForMore;
+	var ratingId = "rating" + rankingForMore;
+	document.getElementById(yearId).innerHTML =  "Year Released: " + filteredMovies[rankingForMore - 1].Year;
+	document.getElementById(ratingId).innerHTML = "Movie Rated: " + filteredMovies[rankingForMore - 1].Rating;
+}
